@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_URL")
+}
+
+// model relation example:
+
+// model Users {
+//   id       Int     @id @default(autoincrement())
+//   email    String  @unique
+//   password String
+//   cards    Cards[]
+
+//   @@map("users")
+// }
+
+// model Cards {
+//   id             Int     @id @default(autoincrement())
+//   title          String
+//   number         String
+//   name           String
+//   securityCode   String
+//   expirationDate String
+//   password       String
+//   isVirtual      Boolean
+//   type           Card
+//   userId         Int
+//   users          Users   @relation(fields: [userId], references: [id])
+
+//   @@unique([userId, title])
+//   @@map("cards")
+// }
+
+// enum example:
+
+// enum Card {
+//   credit
+//   debit
+//   both
+// }
