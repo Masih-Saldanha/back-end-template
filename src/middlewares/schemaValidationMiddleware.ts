@@ -7,7 +7,7 @@ export function validateSchema(schema : Schema) {
 
         if (schemaValidation.error) {
             const message = schemaValidation.error.details.map((error) => {
-                console.log(error.message);
+                console.error(error.message);
                 return error.message;
             });
             throw {
